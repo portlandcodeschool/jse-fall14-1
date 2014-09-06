@@ -64,3 +64,10 @@ When n==7 and d==4, your resulting string should be "1 3/4". You may assume both
 integers and n > d.
 
 (Hint: you'll need the modulo operator _%, and you'll probably want to create a couple of extra variables._) */
+
+var n = 7,
+	d = 4;
+
+var x = Math.floor(n/d);
+
+x.toString() + " " + (n%d).toString() + "/" + d.toString();
