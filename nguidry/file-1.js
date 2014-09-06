@@ -31,13 +31,27 @@ a rectangle with four numeric variables:
 
 a) Write an expression for the rectangle's area.*/
 
+var l,
+	r,
+	t,
+	b;
+
+var area = (l+r)*(t+b);
+
 /*b) Write an expression which is true if the rectangle is taller than it is wide, and 
 false otherwise.*/
+
+(t+b) > (l+r);
 
 /*c) Imagine subdividing your rectangle into 3 equal rows and 3 equal columns, which would create 
 9 smaller rectangles, identical in shape but varying by position. Define four new variables 
 describing the centermost small rectangle. (Hint: one of the many solutions is very similar to 
 the solution of 2b above.)*/
+
+var cl = l-((l+r)/3),
+	cr = r-((l+r)/3),
+	ct = t-((t+b)/3),
+	cb = b-((t+b)/3);
 
 // Exercise 4
 
