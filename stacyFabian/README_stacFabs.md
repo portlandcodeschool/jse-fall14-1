@@ -15,47 +15,102 @@ Some of these are tricky!  Don't trust your first instinct.
 
 **a)** `"1" == 1`
 
-Answer: 'false' (Correct Output: true. Because JS does the bit of 'automatic converstion' betwee numbers and strings == reslts in true.)
+Predicted Answer: false
+   (Correct Output: true  . Because JS does the bit of 'automatic converstion' between numbers and strings == reslts in true.)
 
 **b)** `"1" === 1`
 
-Answer: 'false' 
+Predicted Answer: false , because you're asking does a string equal a number which it does not.
+Actual Output:  
 
 **c)** `x == 'x'`
 
-Answer: 'true', but only if x has been defined as a variable of something before. (Correct Output: Only true if the variable x has been defined as the string 'x' already.)
+Predicted Answer: true , but only if x has been defined as a variable of something before.
+Actual Output: Only true if the variable x has been defined as the string 'x' already.)
 
 **d)** `x == (x+'')`
 
+Predicted Answer: true , only if x has been defined as a number already.
+Actual Output: true
+
 **e)** `'' == ' '`
+
+Predicted Answer: true , because '' is actualy a string of a space character.
 
 **f)** `x = true`
 
+Predicted Answer: true
+Actual Output: true
+
 **g)** `var x; x == 'undefined'`
+
+Predicted Answer: undefined
+Actual Output: undefined
+
+Here you are saying "I've got a variable of x; now define that variable as the string 'undefined'. Basically the same as saying var x = 'undefined'. Then you're typing x and getting the variable results back.
 
 **h)** `'9'<'10'`
 
+Predicted Answer: false
+Actual Output: false
+In JS, when numbers are included in a string, the are evaluated as a string in dictionary form so '9' is a 9 and '10' is a '1' then a '0', thus 9 is more than 1.
+
 **i)** `typeof x + 1 === "number"`
+
+Predicted Answer: 'true' only if x has been defined as a number already.
+Actual Output: Always return false. Because the 'typeof x' part will come back as a string and then adding a number to it and asking if that will equal "number" is basically asking "typeof 'string' === 'number'" which will be false everytime.
 
 **j)** `typeof x % 2 === "number"`
 
+Predicted Answer: 'true' only if x has been defined as a number already.
+Actual Output: Always return false. See above.
+
 **k)** `typeof (x % 2) === "number"`
+
+Predicted Answer: 'true' , only if x has already been defined as a number...including anything that would result in 0 becuase 0 is considered a 'number' type.
+Actual Ouput: It will always be true because a string % a number results in 'NaN' and technically 'NaN' in a number.
 
 **l)** `x++ == ++x`
 
+Predicted Answer: false , no matter what x is set to, it won't ever equal because you're adding a numerical 1 to x with each ++ and thus they'll never equal each other since 1 is added after it's stated but before the comparison and then added again after the comparison but before the statement.
+Actual Output: false
+
 **m)** `++x == x++`
+
+Predicted Answer: true, only if x has been set to a number value first. 
+Actual Output: true when x is a number value and not a string value.
 
 **n)** `"1"+x == 1+x`
 
+Predicted Answer:
+Actual Answer: 
+
 **o)** `"0"+1 == 1`
+
+Predicted Answer:
+Actual Answer: 
 
 **p)** `(typeof (x+1))===(typeof x)`	
 
+Predicted Answer: true , always true. A number would obviously be the same as the number plus 1. Since JS automatically changes a number to a string if necessary to combine two values, then if x were a string, the 1 would be converted to a string of '1' and added to x value thus making their types still the same.
+Actual Answer: true with both a number and a string
+
 **q)** `(x*1 == x) || ((typeof x) != "number")`
+        number: true      number: false
+        string: false     string: true
+
+Predicted Answer: false , because regardless of they type of value for x one side will always be false. (see above)
+Actual Answer: true. Simply, I forgot that || will produce 'true' if either side is true. 
 
 **r)** `(x=(typeof (x+(typeof x))))==x`
 
+Predicted Answer: true if x holds a value of "string"
+Actual Answer: always true. Since the most outlying command is x = typeof, it's basically setting x to a string of whatever the typeof is. So x will == itself. (x will also be reset to "string")
+
 **s)** `x=-1,0,-x---1+'0'+x`
+
+Predicted Answer:
+Actual Answer: 
 
 ---
 
