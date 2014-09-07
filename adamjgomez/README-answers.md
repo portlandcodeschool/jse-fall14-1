@@ -12,14 +12,19 @@ Before testing these expressions in the console, predict what their output will 
 
 Some of these are tricky!  Don't trust your first instinct.  
 
+Prediction - Result
 
 **a)** `"1" == 1`
+`true - true`
 
 **b)** `"1" === 1`
+`false - false`
 
-**c)** `x == 'x'`
+**c)** `x == 'x'` 
+`true - true`
 
 **d)** `x == (x+'')`
+`? - 
 
 **e)** `'' == ' '`
 
@@ -62,9 +67,18 @@ Assume variables x, y, and z are numbers.
 **a)**
 Write an expression for the mean (i.e. average) of x, y, and z.
 
+	var mean = (x + y + z) / 3;
+
+
 **b)**
 Write a series of expressions to adjust each of x, y, and z
 halfway toward their mean.
+
+	var x = x /2;
+	var y = y /2;
+	var z = z /2;
+
+	var halfWayTowardMean = (x + y + z) / 3;
 
 ---
 
@@ -80,13 +94,76 @@ Suppose you're encoding geometric shapes in a Cartesian coordinate system, and y
 **a)**
 Write an expression for the rectangle's area.
 
+	var width,
+        height,
+        area;
+    
+    width = (l > r) ? l - r : r - l;
+    height = (t > b) ? t - b : b - t;
+    
+    area = width * height;
+    
+    
+
 **b)**
 Write an expression which is true if the rectangle is taller than it is wide, and false otherwise.
+
+	var width,
+		height,
+		area,
+		result;
+
+	
+	if(l > r) {
+	
+		width = l - r;
+		
+	} else {
+	
+		width = r - l;
+		
+	}
+	
+	if(t > b) {
+	
+		height = t - b;
+		
+	} else {
+	
+		height = b - t;
+	
+	}
+	
+	if(height > widht) {
+	
+		result = true;
+		
+	} else {
+	
+		result = false;
+		
+	}
+	
+	
+	
+Ternary Operator Example(Look this up and learn more):
+	
+	width = (l > r) ? l - r : r - l;
+    height = (t > b) ? t - b : b - t;
+    result = (height > width) ? true : false;
+	
 
 **c)**
 Imagine subdividing your rectangle into 3 equal rows and 3 equal columns, which would create 9 smaller rectangles, identical in shape but varying by position.
 Define four new variables describing the centermost small rectangle.
 (Hint: one of the many solutions is very similar to the solution of **2b** above.)
+
+	var middleTopLeft,
+		middleTopRight,
+		middleBottomLeft,
+		middleBottomRight;
+		
+
 
 ---
 
@@ -98,3 +175,16 @@ If _n_ is greater than _d_, the fraction is "improper", but it can be rewritten 
 Write an expression for a string expressing the proper form of an improper fraction _n/d_.  When _n==7_ and _d==4_, your resulting string should be "1 3/4".  You may assume both _n_ and _d_ are positive integers and _n_ > _d_.
 
 (_Hint: you'll need the modulo operator _%_, and you'll probably want to create a couple of extra variables._)
+	
+	var n = 20,
+        d = 6;
+    
+    
+    var wholeNumber = n / d;
+    wholeNumber = Math.floor(wholeNumber);
+    
+    var remainder = n % d;
+    
+    var result = wholeNumber + ' ' + remainder + '/' + d;
+    
+    console.log(result);
