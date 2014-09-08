@@ -16,17 +16,17 @@ Some of these are tricky!  Don't trust your first instinct.
 **a)** `"1" == 1`
 
 Predicted Answer: false
-   (Correct Output: true  . Because JS does the bit of 'automatic converstion' between numbers and strings == reslts in true.)
+Actual Output: true  . Because JS does the bit of 'automatic converstion' between numbers and strings == reslts in true.)
 
 **b)** `"1" === 1`
 
 Predicted Answer: false , because you're asking does a string equal a number which it does not.
-Actual Output:  
+Actual Output: false
 
 **c)** `x == 'x'`
 
 Predicted Answer: true , but only if x has been defined as a variable of something before.
-Actual Output: Only true if the variable x has been defined as the string 'x' already.)
+Actual Output: Only true if the variable x has been defined as the string 'x' already.
 
 **d)** `x == (x+'')`
 
@@ -35,7 +35,8 @@ Actual Output: true
 
 **e)** `'' == ' '`
 
-Predicted Answer: true , because '' is actualy a string of a space character.
+Predicted Answer: true
+Actual Ouput: false , ' ' is actually a "string" of the space character.
 
 **f)** `x = true`
 
@@ -83,12 +84,12 @@ Actual Output: true when x is a number value and not a string value.
 **n)** `"1"+x == 1+x`
 
 Predicted Answer: true , only if x has been set to a string. If x is a number the second half will use true addition but the first half will just be 1 and x concatenated. Since addition adds only if both are numbers and a string containing a number won't change to a number unless subtraction is involved, it will default to concatenation
-Actual Answer: [confirm if in an addition operation the number string will or won't automatically change to a number.]
+Actual Answer: true if set to a string and not a number
 
 **o)** `"0"+1 == 1`
 
 Predicted Answer: false , the "0" won't change to a numerical 0 in addition, only in subtraction. Basically the same reason as above.
-Actual Answer: [confirm this]
+Actual Answer: true (_I'm not sure why this is_)
 
 **p)** `(typeof (x+1))===(typeof x)`	
 
@@ -110,7 +111,8 @@ Actual Answer: always true. Since the most outlying command is x = typeof, it's 
 **s)** `x=-1,0,-x---1+'0'+x`
 
 Predicted Answer: 
-Actual Answer: 
+(_I honestly have trouble even reading through thisor finding reference to help clear it up for me. The commas screw me up and I'm not exactly sure where to start_) check https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator
+Actual Answer: When x is set to nothing, 2 or "love", all output is "00-2". But I don't understand how.
 
 ---
 
@@ -186,5 +188,9 @@ If _n_ is greater than _d_, the fraction is "improper", but it can be rewritten 
 Write an expression for a string expressing the proper form of an improper fraction _n/d_.  When _n==7_ and _d==4_, your resulting string should be "1 3/4".  You may assume both _n_ and _d_ are positive integers and _n_ > _d_.
 
 (_Hint: you'll need the modulo operator _%_, and you'll probably want to create a couple of extra variables._)
+
+Answer: 
+
+
 
 
