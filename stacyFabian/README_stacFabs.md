@@ -123,15 +123,15 @@ Assume variables x, y, and z are numbers.
 **a)**
 Write an expression for the mean (i.e. average) of x, y, and z.
 
-var sum = (x+y+x)
-var mean = sum/3
+var sum = (x+y+x);
+var mean = sum/3;
 
 **b)**
 Write a series of expressions to adjust each of x, y, and z
 halfway toward their mean.
 
-var halfSum = (x/2) + (y/2) + (z/2)
-var halfwayToMean = halfSum / 3
+var halfSum = (x/2) + (y/2) + (z/2);
+var halfwayToMean = halfSum / 3;
 
 ---
 
@@ -147,17 +147,34 @@ Suppose you're encoding geometric shapes in a Cartesian coordinate system, and y
 **a)**
 Write an expression for the rectangle's area.
 
-var width = r - l
-var height = t - b
-var area = width * height
+var width = r - l;
+var height = t - b;
+var area = width * height;
 
 **b)**
 Write an expression which is true if the rectangle is taller than it is wide, and false otherwise.
+
+var width = r - l;
+var height = t - b;
+
+if (width<height)
+	console.log(true);
+else
+	console.log(false);
 
 **c)**
 Imagine subdividing your rectangle into 3 equal rows and 3 equal columns, which would create 9 smaller rectangles, identical in shape but varying by position.
 Define four new variables describing the centermost small rectangle.
 (Hint: one of the many solutions is very similar to the solution of **2b** above.)
+
+var width = r - l;
+var height = t - b;
+
+var midCtr_left = (l + (width/3));
+var midCtr_right = (r - (width/3));
+var midCtr_top = (t - (heigth/3));
+var midCtr_bottom = (b + (height/3));
+
 
 ---
 
