@@ -15,15 +15,19 @@ Some of these are tricky!  Don't trust your first instinct.
 Prediction - Result
 
 **a)** `"1" == 1`
+
 `true - true`
 
 **b)** `"1" === 1`
+
 `false - false`
 
-**c)** `x == 'x'` 
+**c)** `x == 'x'`
+
 `true - true`
 
 **d)** `x == (x+'')`
+
 `true - true`
 
 **e)** `'' == ' '`
@@ -36,13 +40,23 @@ Prediction - Result
 
 **g)** `var x; x == 'undefined'`
 
+`false - false` 
+
 **h)** `'9'<'10'`
+
+`false - false`
 
 **i)** `typeof x + 1 === "number"`
 
+`false - false`
+
 **j)** `typeof x % 2 === "number"`
 
+`false - false`
+
 **k)** `typeof (x % 2) === "number"`
+
+`false - true`
 
 **l)** `x++ == ++x`
 
@@ -70,9 +84,11 @@ Prediction - Result
 
 **r)** `(x=(typeof (x+(typeof x))))==x`
 
-
+`true - true`
 
 **s)** `x=-1,0,-x---1+'0'+x`
+
+` "00-2" - "00-2" `
 
 ---
 
