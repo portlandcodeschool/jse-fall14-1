@@ -82,13 +82,13 @@ Actual Output: true when x is a number value and not a string value.
 
 **n)** `"1"+x == 1+x`
 
-Predicted Answer:
-Actual Answer: 
+Predicted Answer: true , only if x has been set to a string. If x is a number the second half will use true addition but the first half will just be 1 and x concatenated. Since addition adds only if both are numbers and a string containing a number won't change to a number unless subtraction is involved, it will default to concatenation
+Actual Answer: [confirm if in an addition operation the number string will or won't automatically change to a number.]
 
 **o)** `"0"+1 == 1`
 
-Predicted Answer:
-Actual Answer: 
+Predicted Answer: false , the "0" won't change to a numerical 0 in addition, only in subtraction. Basically the same reason as above.
+Actual Answer: [confirm this]
 
 **p)** `(typeof (x+1))===(typeof x)`	
 
@@ -100,7 +100,7 @@ Actual Answer: true with both a number and a string
         string: false     string: true
 
 Predicted Answer: false , because regardless of they type of value for x one side will always be false. (see above)
-Actual Answer: true. Simply, I forgot that || will produce 'true' if either side is true. 
+Actual Answer: true. Simply, I forgot that || will produce 'true' if EITHER side is true, not both. 
 
 **r)** `(x=(typeof (x+(typeof x))))==x`
 
@@ -109,7 +109,7 @@ Actual Answer: always true. Since the most outlying command is x = typeof, it's 
 
 **s)** `x=-1,0,-x---1+'0'+x`
 
-Predicted Answer:
+Predicted Answer: 
 Actual Answer: 
 
 ---
@@ -123,9 +123,15 @@ Assume variables x, y, and z are numbers.
 **a)**
 Write an expression for the mean (i.e. average) of x, y, and z.
 
+var sum = (x+y+x)
+var mean = sum/3
+
 **b)**
 Write a series of expressions to adjust each of x, y, and z
 halfway toward their mean.
+
+var halfSum = (x/2) + (y/2) + (z/2)
+var halfwayToMean = halfSum / 3
 
 ---
 
@@ -140,6 +146,10 @@ Suppose you're encoding geometric shapes in a Cartesian coordinate system, and y
 
 **a)**
 Write an expression for the rectangle's area.
+
+var width = r - l
+var height = t - b
+var area = width * height
 
 **b)**
 Write an expression which is true if the rectangle is taller than it is wide, and false otherwise.
