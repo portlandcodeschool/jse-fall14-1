@@ -24,11 +24,15 @@ Prediction - Result
 `true - true`
 
 **d)** `x == (x+'')`
-`? - 
+`true - true`
 
 **e)** `'' == ' '`
 
+`false - false`
+
 **f)** `x = true`
+
+`true - true`
 
 **g)** `var x; x == 'undefined'`
 
@@ -42,17 +46,31 @@ Prediction - Result
 
 **l)** `x++ == ++x`
 
+`false - false`
+
 **m)** `++x == x++`
+
+`false - true`
 
 **n)** `"1"+x == 1+x`
 
+`false - false`
+
 **o)** `"0"+1 == 1`
 
-**p)** `(typeof (x+1))===(typeof x)`  
+`true - true`
+
+**p)** `(typeof (x+1))===(typeof x)`
+
+`false - true`
 
 **q)** `(x*1 == x) || ((typeof x) != "number")`
 
+`true - true`
+
 **r)** `(x=(typeof (x+(typeof x))))==x`
+
+
 
 **s)** `x=-1,0,-x---1+'0'+x`
 
@@ -113,35 +131,22 @@ Write an expression which is true if the rectangle is taller than it is wide, an
 		area,
 		result;
 
-	
 	if(l > r) {
-	
 		width = l - r;
-		
 	} else {
-	
-		width = r - l;
-		
+		width = r - l;	
 	}
 	
 	if(t > b) {
-	
 		height = t - b;
-		
 	} else {
-	
 		height = b - t;
-	
 	}
 	
-	if(height > widht) {
-	
+	if(height > width) {
 		result = true;
-		
 	} else {
-	
 		result = false;
-		
 	}
 	
 	
@@ -158,11 +163,22 @@ Imagine subdividing your rectangle into 3 equal rows and 3 equal columns, which 
 Define four new variables describing the centermost small rectangle.
 (Hint: one of the many solutions is very similar to the solution of **2b** above.)
 
-	var middleTopLeft,
-		middleTopRight,
-		middleBottomLeft,
-		middleBottomRight;
-		
+
+    var l = 0;
+    var r = 6;
+    var t = 3;
+    var b = 0;
+	var parentRecWidth = r - l;
+	var parentRecHeight = t - b;
+	var parentRecArea = parentRecWidth * parentRecHeight;	
+
+	var childRecWidth = (parentRecWidth) / 3;
+	var childRecHeight = (parentRecHeight) / 3;
+
+	var centerRight = r - childRecWidth;
+	var centerLeft = l + childRecWidth;
+	var centerTop = t - childRecHeight;
+	var centerBottom = b + childRecHeight;
 
 
 ---
