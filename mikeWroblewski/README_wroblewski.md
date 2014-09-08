@@ -20,7 +20,7 @@ b) `"1" === 1`
 False - False 
 
 c) `x == 'x'`
-False - False
+False - False:  To be True, x would have to be set to the letter x
 
 d) `x == (x+'')`
 False -  True
@@ -32,28 +32,28 @@ f) `x = true`
 True - True
 
 g) `var x; x == 'undefined'`
-False - False
+False - False:  To be True, x would have to be set to "Undefined"
 
 h) `'9'<'10'`
 False - False
 
 i) `typeof x + 1 === "number"`
-False - False
+False - False:  To be True, x would have to be set to a Number and parentheses must surround x + 1
 
 j) `typeof x % 2 === "number"`
-False - False
+False - False:  To be True, x would have to be set to a Number and parentheses must surround x % 2
 
 k) `typeof (x % 2) === "number"`
 True - True
 
 l) `x++ == ++x`
-False - False
+False - False:  To be True, the equation would have to be "x == ++x" since x++ always adds 1 to the value of x, but ++x does not.
 
 m) `++x == x++`
 False - True
 
 n) `"1"+x == 1+x`
-True - False
+True - False:  To be True, x would have to be set to a string
 
 o) `"0"+1 == 1`
 True - True
