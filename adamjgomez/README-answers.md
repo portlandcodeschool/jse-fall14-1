@@ -196,6 +196,15 @@ Define four new variables describing the centermost small rectangle.
 	var centerTop = t - childRecHeight;
 	var centerBottom = b + childRecHeight;
 
+// Answer below is the solution from Dan using weighted means:
+
+	var lc = (2*l + r)/3;
+	var rc = (2*r + l)/3;
+	var tc = (2*t + b)/3;
+	var bc = (2*b + t)/3;
+	
+
+
 
 ---
 
