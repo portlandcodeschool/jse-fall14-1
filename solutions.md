@@ -23,7 +23,7 @@ Some of these are tricky!  Don't trust your first instinct.
 > false UNLESS x is literally string 'x'
 
 **d)** `x == (x+'')`
-> true UNLESS x is NaN
+> true UNLESS x is NaN, true, or false
 
 **e)** `'' == ' '`
 > false
@@ -69,6 +69,63 @@ Some of these are tricky!  Don't trust your first instinct.
 
 **s)** `x=-1,0,-x---1+'0'+x`
 > "00-2"
+
+<pre>
+This one needs some explanation.
+We can parse gigantic expressions like this in two phases: 1) parentheses replacement, then 2) evaluation.
+
+Phase 1: Place implicit parentheses to decide evaluation order!
+
+First consider the ugly `-x---1`.
+At first it might seem like a multiple negation: `-x -(-(-1)))`.
+But predecrement and postdecrement operators (--) have stronger precedence, so look for those first.
+Predecrement (--1) doesn't make sense, but postdecrement (x--) does, so start there:
+x=-1,0,-(x--)-1+'0'+x
+
+The next strongest operator is unary minus, in two places:
+x=(-1),0,(-(x--))-1+'0'+x
+
+Then left-to-right subtraction and addition/concatenation:
+x=(-1),0,((-(x--))-1)+'0'+x
+x=(-1),0,(((-(x--))-1)+'0')+x
+x=(-1),0,((((-(x--))-1)+'0')+x)
+
+Then assignment:
+(x=(-1)),0,((((-(x--))-1)+'0')+x)
+
+And finally, left-to-right commas:
+((x=(-1)),0),((((-(x--))-1)+'0')+x)
+That's the expression which gets evaluated!
+
+Phase 2: Now evaluate nested expressions as they close, from left to right:
+
+((x=(-1)),0),((((-(x--))-1)+'0')+x)
+ ^^^^^^^^  x becomes -1, substitute -1
+
+(   -1   ,0),((((-(x--))-1)+'0')+x)
+^^^^^^^^^^^^ comma op discards -1
+
+0,((((-(x--))-1)+'0')+x)
+       ^^^^^ x becomes -2, substitute -1
+
+0,((((-(-1) )-1)+'0')+x) with x now -2
+      ^^^^^ double negative substitutes 1
+
+0,((((  1   )-1)+'0')+x)
+     ^^^^^^^^^^ (1)-1 substitutes 0
+
+0,(((     0    )+'0')+x)
+    ^^^^^^^^^^^^^^^^ (0)+'0' substitutes '00'
+
+0,((      '00'      )+x)
+   ^^^^^^^^^^^^^^^^^^^^ ('00')+x substitutes '00-2'
+
+0,(        '00-2'      )
+^^  comma op discards 0
+
+'00-2'
+</pre>
+
 
 ---
 
