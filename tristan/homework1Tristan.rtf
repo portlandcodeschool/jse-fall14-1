@@ -1,0 +1,398 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red52\green110\blue183;\red225\green225\blue225;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww27040\viewh13960\viewkind0
+\deftab720
+\pard\pardeftab720\sl500\sa320
+
+\f0\b\fs36 \cf2 Homework #1\
+\pard\pardeftab720\sl500\sa320
+
+\b0\fs32 \cf2 (Due Monday 9/8)\
+You need to turn in this homework by cloning this repo, making a new branch with your solutions, pushing to github, and issuing a pull request. For details, follow the instructions {\field{\*\fldinst{HYPERLINK "http://portlandcodeschool.github.io/jse/2014/05/12/command-line-and-git-slides/#/14"}}{\fldrslt \cf3 here}}.\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb4 \
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 \cb1 1)
+\b0  (
+\i Difficulty: mixed
+\i0 ) Before testing these expressions in the console, predict what their output will be. If the output depends on x, identify the conditions when the expression will output true. Assume the cases are independent, and x is reset to an unknown value before each.\
+Some of these are tricky! Don't trust your first instinct.\
+
+\b \cf0 a)
+\b0  
+\f1\fs28 \cf1 \cb0 "1" == 1\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+False - because there\'92s no reason the logic will convert the string \'931\'94 to a number and it will assign the ascii numeric value to the number one which is not equal to the actual value of the number 1.\
+Actual:\
+True. I guess it does convert the string 1 to a number for comparison.
+\f0\fs32 \
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 b)
+\b0  
+\f1\fs28 \cf1 \cb0 "1" === 1\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+False - because the triple-equals wants \'93real\'94 equivalency, I\'92ll say that the system will not allow them to be seen as equivalents like they were in question \'93a\'94 above.\
+Actual:\
+False - I was right.
+\f0\fs32 \
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 c)
+\b0  
+\f1\fs28 \cf1 \cb0 x == 'x'\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+I think it will throw an error because it will not know what x (non-string) is. It will think it\'92s an undeclared variable or something.\
+Actual:\
+False - I was wrong. I think I must have defined x to be something in previous fooling around because when I type in simply x\'85it returns a value of 2.
+\f0\fs32 \
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 d)
+\b0  
+\f1\fs28 \cb0 x\cf1  == (x+'')\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+If the value of x is set to a string, then it will probably ignore the space added and return true.\
+If the value of x is set to a number, then it will return false.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 For the string, I was wrong. It returns false because when x is set to the string \'93blue\'94 then it finds the string \'93blue \'93 to be not equivalent\'85which is kind of surprising given the answers above\'85I would have guessed that it would take a triple-equals to consider a trailing space \'93different.\'94\
+For numbers\'85I was wrong. It returns true. Presumably this is because in the context of numbers the space is irrelevant\'85wouldn\'92t make a difference in any calculation. \
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 e)
+\b0  
+\f1\fs28 \cb0 '\cf1 ' == ' '\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+False. The strings are not equivalent.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 I was correct.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 f)
+\b0  
+\f1\fs28 \cb0 x\cf1  = true\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+We\'92re simply assigning the value \'93true\'94 to the variable x so the system will just assign it and return the new value of x\'85which is true.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 That\'92s what happened.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 g)
+\b0  
+\f1\fs28 \cb0 v\cf1 ar x; x == 'undefined'\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+Since I\'92ve already been using the variable x I think redeclaring it will set it to undefined again. So\'85I predict that the second statement will be true. Wait\'85upon closer inspection, the second expression is comparing the variable x to the string \'93undefined\'94 so it will definitely be false because the value of x is not a string.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 I was right.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 h)
+\b0  
+\f1\fs28 \cb0 '\cf1 9'<'10'\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+True. Because we\'92re using a math operator, js will convert the strings to numbers so it can do the comparison.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 False. I was wrong. I think it evaluated the ascii values for the characters 9 and 10 and found them to be *not* equivalent.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 i)
+\b0 \cf1  
+\f1\fs28 \cb0 typeof x + 1 === "number"\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+False. If we had this expression without the \'93+ 1\'94 added in there, I think it would be true. But because we try to add the number to the string that will return from the typeof operator (result will be the string \'93number\'94) and then adding the number 1 to it will result in an error.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 False. I was partly right. It did not evaluate to true but it did not find it to be an error. Instead it just found it to be false.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 j)
+\b0  
+\f1\fs28 \cf1 \cb0 typeof x % 2 === "number"\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+False. I think it will evaluate the typeof first\'85resulting in a string \'93number\'94 and then it will try to do the modulo operation on that string and it will result in an error.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 False. Again, it does not find it to be an error\'85although performing the modulo on a string seems like it would be a problem. But it just returns false.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 k)
+\b0  
+\f1\fs28 \cf1 \cb0 typeof (x % 2) === "number"\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+True. I think as long as x is a number then it will evaluate as true. If x is a string then I think it will be false.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 True. In both cases this evaluates as true. I guess it must try to divide 2 into the string \'93blue\'94 and return with the number 2 as the remainder and then it considers the typeof of the number 2 and that\'92s a number.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 l)
+\b0  
+\f1\fs28 \cf1 \cb0 x++ == ++x\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+False. The first one will return the current value of x and then add 1 to it. The second one will first add 1 to x and *then* return the new value. Not equivalent.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 False. My assessment was correct. (Though I might have reversed the reasoning.)\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 m)
+\b0  
+\f1\fs28 \cf1 \cb0 ++x == x++\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+False. I think this is the same issue as above. In this case, it will report the \'93old\'94 value of x but when it does the \'93==\'93 comparison it will have incremented x\'85and the second half (x++) will add another 1 to the value and compare it to the previous \'93once incremented\'94 value and they will still be apart by one.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 False. I was correct\'85and I think I had the reasoning correct, too.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 n)
+\b0  
+\f1\fs28 \cf1 \cb0 "1"+x == 1+x\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+True. js will evaluate the string \'931\'94 as a number because of the math operator.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 False. I assumed that js would do math but it appears that js assumes \'93string\'94 rather than number. So, in the first half of the expression it uses the + operator to concatenate and makes x equal to \'9312\'94 because I had set x equal to the number 2. Then it compares to the second half which is actually math addition resulting in the number 3. If the first half evaluated to the string \'933\'94 then with the double-equals operator I think it would come back as true.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 o)
+\b0  
+\f1\fs28 \cf1 \cb0 "0"+1 == 1\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+False. I think it will concatenate again and so the left side will be the string \'9301\'94 and the second half is the number 1\'85which could be evaluated as equivalent if the other side had the string \'931\'94 but not with the string \'9301\'94\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 True. I have no idea why it would treat the left side here differently than in question \'93n\'94 above.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 p)
+\b0  
+\f1\fs28 \cf1 \cb0 (typeof (x+1))===(typeof x)\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+True. I think since x is a number on both sides and we\'92re really just comparing the return value of the typeof operator on both sides, they will be the same. If x were a string, then I think it would still be true because it would concatenate the 1 with it and it would still return \'93string\'94 on both sides.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 True. I was correct in both cases\'85x as number and x as string.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 q)
+\b0  
+\f1\fs28 \cf1 \cb0 (x*1 == x) || ((typeof x) != "number")\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+True. The left side of the or operator is obviously true so the expression will always evaluate as true, regardless of what\'92s on the right. In this case, the value on the right is false but it won\'92t matter.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 True. I was correct. Although, if I assign a string to x I still get true and I\'92m not sure why that is. Does the multiplication convert the string \'93blue\'94 to its ascii numerical value?\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 r)
+\b0  
+\f1\fs28 \cf1 \cb0 (x=(typeof (x+(typeof x))))==x\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+True. The left side of the == operator will result in a value (\'93string\'94 I think) and assign it to x. Then it will be compared to the x on the other side of the == and obviously, x==x.\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 True. I was correct.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 s)
+\b0  
+\f1\fs28 \cf1 \cb0 x=-1,0,-x---1+'0'+x\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 Predicted:\
+We\'92ll just see the new value of the variable x which is: 1,0,-x\'9710x\
+Actual:\
+\pard\pardeftab720\sl500\sa320
+
+\f0\fs32 \cf2 That is not what happened. I got instead the following string: 00-2 but I don\'92t know why.\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb4 \
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb1 All of the following can be solved with ordinary expressions and global variables with primitive values. You don't need functions, loops, conditionals, or other topics beyond our first class.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 2)
+\b0  (
+\i Difficulty: easy
+\i0 )\
+Assume variables x, y, and z are numbers.\
+
+\b a)
+\b0  Write an expression for the mean (i.e. average) of x, y, and z.\
+var meanValue = (x + y + z) / 3;\
+
+\b b)
+\b0  Write a series of expressions to adjust each of x, y, and z halfway toward their mean.\
+x = (x + meanValue)/2;\
+y = (y+meanValue)/2;\
+z = (z+meanValue)/2;\
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb4 \
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 \cb1 3)
+\b0  (
+\i Difficulty: easyish
+\i0 )\
+Suppose you're encoding geometric shapes in a Cartesian coordinate system, and you represent a rectangle with four numeric variables:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl500
+\ls1\ilvl0
+\i \cf2 {\listtext	\'95	}l
+\i0  : horizontal position of left edge;\
+\ls1\ilvl0
+\i {\listtext	\'95	}r
+\i0  : horizontal position of right edge;\
+\ls1\ilvl0
+\i {\listtext	\'95	}t
+\i0  : vertical position of top edge;\
+\ls1\ilvl0
+\i {\listtext	\'95	}b
+\i0  : vertical position of bottom edge.\
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 a)
+\b0  Write an expression for the rectangle's area.\
+var l; var r; var t; var b;\
+var width = (r-l);\
+var height = (t-b);\
+var area = width * height;\
+
+\b b)
+\b0  Write an expression which is true if the rectangle is taller than it is wide, and false otherwise.\
+var width = (r-l);\
+var height = (t-b);\
+width > height;\
+
+\b c)
+\b0  Imagine subdividing your rectangle into 3 equal rows and 3 equal columns, which would create 9 smaller rectangles, identical in shape but varying by position. Define four new variables describing the centermost small rectangle. (Hint: one of the many solutions is very similar to the solution of 
+\b 2b
+\b0 above.)\
+\pard\pardeftab720
+
+\f1\fs24 \cf0 //establish the variables we need\
+var l = 1; var r = 6; var t = 4; var b = 2;\
+var innerL; var innerR; var innerT; var innerB;\
+var width = (r-l);\
+var height = (t-b);\
+//calculate position of left edge of inner rectangle \'97 innerL\
+if(l>0)\
+  innerL = (l+width/3);\
+  else \
+   innerL = (l-width/3);\
+//calculate position of right edge of inner rectangle \'97 innerR\
+if(r>0) \
+ innerR = (r+width/3);\
+  else \
+   innerR = (r-width/3);\
+//calculate position of top edge of inner rectangle \'97 innerT\
+if(t>0)  \
+innerT = (t+height/3);\
+  else \
+   innerT = (t-height/3);\
+//calculate position of bottom edge of inner rectangle \'97 innerB\
+if(b>0) \
+ innerB = (b+height/3);\
+  else \
+   innerB = (b-height/3);
+\f0\fs32 \cf2 \
+\pard\pardeftab720\sl500\sa320
+\cf2 \cb4 \
+\pard\pardeftab720\sl500\sa320
+
+\b \cf2 \cb1 4)
+\b0  (
+\i Difficulty: moderate
+\i0 )\
+Suppose you represent a fraction (
+\i n/d
+\i0 ) with 2 integer variables: 
+\i n
+\i0  for the numerator and 
+\i d
+\i0  for the denominator. If 
+\i n
+\i0  is greater than 
+\i d
+\i0 , the fraction is "improper", but it can be rewritten as a proper fraction. For example, "7/4" is improper, but it can be rewritten "1 3/4", which is proper.\
+Write an expression for a string expressing the proper form of an improper fraction 
+\i n/d
+\i0 . When 
+\i n==7
+\i0 and 
+\i d==4
+\i0 , your resulting string should be "1 3/4". You may assume both 
+\i n
+\i0  and 
+\i d
+\i0  are positive integers and 
+\i n
+\i0  > 
+\i d
+\i0 .\
+\pard\pardeftab720\sl500
+\cf2 (
+\i Hint: you'll need the modulo operator _%
+\i0 , and you'll probably want to create a couple of extra variables._)\
+\
+\pard\pardeftab720
+
+\f1\fs24 \cf0 var n = 7;\
+var d = 4;\
+var wholeNumber = 0;\
+var numeratorCounter = n;\
+var properNumerator = n%d;\
+while (numeratorCounter>d) \{\
+  numeratorCounter = numeratorCounter-d\
+  ++wholeNumber\
+\}\
+var mixedFraction = wholeNumber + " " + properNumerator + "/" + d;
+\f0\fs32 \cf2 \
+\pard\pardeftab720\sl500
+\cf2 \
+\
+\
+\
+}
