@@ -169,6 +169,8 @@ Imagine subdividing your rectangle into 3 equal rows and 3 equal columns, which 
 Define four new variables describing the centermost small rectangle.
 (Hint: one of the many solutions is very similar to the solution of **2b** above.)
 
+-- Answer below -- 
+
 var width = r - l;
 var height = t - b;
 
@@ -190,6 +192,10 @@ Write an expression for a string expressing the proper form of an improper fract
 (_Hint: you'll need the modulo operator _%_, and you'll probably want to create a couple of extra variables._)
 
 Answer: 
+
+var n = numerator
+var d = denomenator
+
 
 
 
