@@ -149,35 +149,19 @@ Suppose you're encoding geometric shapes in a Cartesian coordinate system, and y
 **a)**
 Write an expression for the rectangle's area.
 
-var width = r - l;
-var height = t - b;
-var area = width * height;
+-- See Answers Document
 
 **b)**
 Write an expression which is true if the rectangle is taller than it is wide, and false otherwise.
 
-var width = r - l;
-var height = t - b;
-
-if (width<height)
-	console.log(true);
-else
-	console.log(false);
+-- See Answers Document
 
 **c)**
 Imagine subdividing your rectangle into 3 equal rows and 3 equal columns, which would create 9 smaller rectangles, identical in shape but varying by position.
 Define four new variables describing the centermost small rectangle.
 (Hint: one of the many solutions is very similar to the solution of **2b** above.)
 
--- Answer below -- 
-
-var width = r - l;
-var height = t - b;
-
-var midCtr_left = (l + (width/3));
-var midCtr_right = (r - (width/3));
-var midCtr_top = (t - (heigth/3));
-var midCtr_bottom = (b + (height/3));
+-- See Answers Document
 
 
 ---
