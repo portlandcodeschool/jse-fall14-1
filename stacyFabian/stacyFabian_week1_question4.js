@@ -9,6 +9,6 @@ var remainder = (n%d);
 
 var evenlyDivisible = n - remainder;
 
-var wholeNums = evenlyDivisible /  remainder;
+var wholeNums = evenlyDivisible / d;
 
 var propFrac = fullNums + " " + remainder + "/" + d;
