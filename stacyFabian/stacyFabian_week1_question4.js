@@ -3,9 +3,9 @@
 
 var n, d;
 
-var impropFrac = n +"/" + d; // 7/4
+var impropFrac = n +"/" + d;
 
-var remainder = (n%d);  // 7%4 = 3
+var remainder = (n%d);
 
 var evenlyDivisible = n - remainder;
 
